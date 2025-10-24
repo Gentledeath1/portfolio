@@ -3,7 +3,7 @@
 <p align="center">
   <img src="https://img.shields.io/badge/Status-In%20Progress-0A1A2F?style=for-the-badge&logo=github&logoColor=D4AF37" />
   <img src="https://img.shields.io/badge/TechStack-FullStack-111111?style=for-the-badge&logo=visualstudiocode&logoColor=D4AF37" />
-  <img src="https://img.shields.io/github/last-commit/Gentledeath1/your-repo-name?style=for-the-badge&color=D4AF37" />
+  <img src="https://img.shields.io/github/last-commit/Gentledeath1/portfolio?style=for-the-badge&color=D4AF37" />
 </p>
 
 
@@ -17,7 +17,6 @@ This project is being built **publicly**, so you can **track my progress in real
 
 🛠️ Tech Stack
 
-|        Area     | Tools 
 | 🎨 **Frontend** | HTML, CSS, JavaScript (React coming soon) 
 | ⚙️ **Backend** | PHP & MySQL 
 | 🧰 **Tools & Workflow** | VS Code, WAMP Server, Git, Figma 
