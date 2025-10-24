@@ -17,21 +17,21 @@ This project is being built **publicly**, so you can **track my progress in real
 
 🛠️ Tech Stack
 
-| 🎨 **Frontend** | HTML, CSS, JavaScript (React coming soon) 
-| ⚙️ **Backend** | PHP & MySQL 
-| 🧰 **Tools & Workflow** | VS Code, WAMP Server, Git, Figma 
-| 🌐 **Version Control** | Git & GitHub 
+| 🎨 **Frontend** | HTML, CSS, JavaScript (React coming soon) <br>
+| ⚙️ **Backend** | PHP & MySQL <br> 
+| 🧰 **Tools & Workflow** | VS Code, WAMP Server, Git, Figma <br>
+| 🌐 **Version Control** | Git & GitHub <br>
 
 
 
  📅 Development Timeline
 
-|    Phase   |           Description         | Status 
-| 🔹 Phase 1 | Base structure & layout setup | ✅ Completed 
-| 🔹 Phase 2 | Navbar, Hero, and About sections | 🚧 In Progress 
-| 🔹 Phase 3 | Portfolio projects section | 🚧 In Progress 
-| 🔹 Phase 4 | Contact form & backend integration | ⏳ Pending 
-| 🔹 Phase 5 | Responsive design + animations | ⏳ Pending 
+
+| 🔹 Phase 1 | Base structure & layout setup | ✅ Completed <br>
+| 🔹 Phase 2 | Navbar, Hero, and About sections | 🚧 In Progress <br>
+| 🔹 Phase 3 | Portfolio projects section | 🚧 In Progress <br>
+| 🔹 Phase 4 | Contact form & backend integration | ⏳ Pending <br>
+| 🔹 Phase 5 | Responsive design + animations | ⏳ Pending <br>
 
 
 ✨ Sneak Peek
