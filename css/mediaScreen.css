@@ -12,7 +12,7 @@
     top: 61px;
     right: -100%;
     flex-direction: column;
-    background: #908585;
+    background: #2e2e2e;
     width: 200px;
     text-align: center;
     padding: 15px 0;
@@ -32,5 +32,55 @@
   #hamburger-container.active .bi-list::before {
     content: "\f62a";
     /* Bootstrap 'x' icon */
+  }
+
+  /* Homepage */
+  #hero-banner {
+    margin-top: 61px;
+    ;
+  }
+
+  #hero-banner {
+    flex-direction: column;
+    gap: 15px;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    padding: 0px;
+  }
+
+  #hero-heading h1 {
+    font-size: 35px;
+    margin-top: 10px;
+  }
+
+  #hero-heading p {
+    font-size: 14px;
+  }
+
+  #flyer-container {
+    margin-bottom: 15px;
+    height: 450px;
+  }
+}
+
+@media (max-width: 1100px) {
+  #hero-banner {
+    flex-direction: column;
+    gap: 15px;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    padding: 0px;
+  }
+
+  #hero-heading h1 {
+    margin-top: 10px;
+  }
+
+  #flyer-container {
+    margin-bottom: 15px;
+    margin-left: auto;
+    margin-right: auto;
   }
 }
