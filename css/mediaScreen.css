@@ -12,12 +12,16 @@
     top: 61px;
     right: -100%;
     flex-direction: column;
-    background: #2e2e2e;
+    background: #000000;
     width: 200px;
     text-align: center;
     padding: 15px 0;
     border-radius: 0 0 10px 10px;
     transition: all 0.8s ease;
+  }
+
+  #menu-list a {
+    color: #fff;
   }
 
   #menu-list.active {
@@ -37,20 +41,16 @@
   /* Homepage */
   #hero-banner {
     margin-top: 61px;
-    ;
-  }
-
-  #hero-banner {
-    flex-direction: column;
-    gap: 15px;
-    text-align: center;
-    justify-content: center;
-    align-items: center;
-    padding: 0px;
+    /* flex-direction: column;
+    gap: 15px; */
+    /* text-align: center; */
+    /* justify-content: center;
+    align-items: start; */
+    padding: 0px 10px 0px 0px;
   }
 
   #hero-heading h1 {
-    font-size: 35px;
+    font-size: 50px;
     margin-top: 10px;
   }
 
@@ -59,23 +59,20 @@
   }
 
   #flyer-container {
-    margin-bottom: 15px;
-    height: 450px;
+    display: none;
   }
 }
 
-@media (max-width: 1100px) {
-  #hero-banner {
-    flex-direction: column;
-    gap: 15px;
-    text-align: center;
-    justify-content: center;
-    align-items: center;
-    padding: 0px;
-  }
+@media (max-width: 1100px) and (min-width: 768px) {
+
 
   #hero-heading h1 {
     margin-top: 10px;
+    font-size: 55px;
+  }
+
+  #hero-heading p {
+    font-size: 12px;
   }
 
   #flyer-container {
