@@ -1,0 +1,36 @@
+@media (max-width: 768px) {
+  #logo-container {
+    width: 50px;
+  }
+
+  #hamburger-container {
+    display: block;
+  }
+
+  #menu-list {
+    position: absolute;
+    top: 61px;
+    right: -100%;
+    flex-direction: column;
+    background: #908585;
+    width: 200px;
+    text-align: center;
+    padding: 15px 0;
+    border-radius: 0 0 10px 10px;
+    transition: all 0.8s ease;
+  }
+
+  #menu-list.active {
+    right: 0;
+  }
+
+  #menu-list .list {
+    margin: 15px 0;
+  }
+
+  /* Animate the hamburger icon (menu → close) */
+  #hamburger-container.active .bi-list::before {
+    content: "\f62a";
+    /* Bootstrap 'x' icon */
+  }
+}
