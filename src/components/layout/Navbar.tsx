@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import { Menu, X } from "lucide-react";
 
 const navLinks = [
   { label: "About", href: "#about" },
@@ -19,193 +20,89 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const handleNavClick = (href: string) => {
+  const scrollTo = (href: string) => {
     setMenuOpen(false);
-    const el = document.querySelector(href);
-    if (el) el.scrollIntoView({ behavior: "smooth" });
+    document.querySelector(href)?.scrollIntoView({ behavior: "smooth" });
   };
 
   return (
     <header
-      style={{
-        position: "fixed",
-        top: 0,
-        left: 0,
-        right: 0,
-        zIndex: 50,
-        borderBottom: scrolled
-          ? "1px solid var(--border)"
-          : "1px solid transparent",
-        backgroundColor: scrolled ? "var(--surface-overlay)" : "transparent",
-        backdropFilter: scrolled ? "blur(12px)" : "none",
-        transition: "all var(--transition-base)",
-      }}
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-200 ${
+        scrolled
+          ? "border-b border-[var(--border)] bg-[var(--surface-overlay)] backdrop-blur-md"
+          : "border-b border-transparent bg-transparent"
+      }`}
     >
-      <nav
-        style={{
-          maxWidth: "var(--max-width)",
-          margin: "0 auto",
-          padding: "0 var(--container-padding)",
-          height: "64px",
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "space-between",
-        }}
+      <div
+        className="mx-auto px-6 h-16 flex items-center justify-between"
+        style={{ maxWidth: "var(--max-width)" }}
       >
         {/* Logo */}
         <button
           onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-          style={{
-            background: "none",
-            border: "none",
-            cursor: "pointer",
-            padding: 0,
-            display: "flex",
-            flexDirection: "column",
-            gap: "1px",
-          }}
+          className="flex flex-col gap-0.5 bg-transparent border-none cursor-pointer p-0 shrink-0"
         >
-          <span
-            style={{
-              fontSize: "0.9rem",
-              fontWeight: 600,
-              color: "var(--foreground)",
-              letterSpacing: "-0.02em",
-              lineHeight: 1.2,
-            }}
-          >
+          <span className="text-sm font-semibold text-[var(--foreground)] tracking-tight leading-tight">
             Ikechukwu Ogbonna
           </span>
-          <span
-            style={{
-              fontSize: "0.7rem",
-              color: "var(--foreground-tertiary)",
-              letterSpacing: "0.05em",
-              textTransform: "uppercase",
-            }}
-          >
+          <span className="text-[0.62rem] text-[var(--foreground-tertiary)] tracking-widest uppercase">
             Founder & Engineer
           </span>
         </button>
 
-        {/* Desktop Links */}
-        <div
-          style={{
-            display: "flex",
-            alignItems: "center",
-            gap: "2rem",
-          }}
-          className="hide-mobile"
-        >
+        {/* Desktop links — absolutely centered */}
+        <nav className="hidden md:flex items-center gap-8 absolute left-1/2 -translate-x-1/2">
           {navLinks.map((link) => (
             <button
               key={link.href}
-              onClick={() => handleNavClick(link.href)}
-              style={{
-                background: "none",
-                border: "none",
-                cursor: "pointer",
-                fontSize: "0.875rem",
-                color: "var(--foreground-secondary)",
-                padding: 0,
-                transition: "color var(--transition-fast)",
-              }}
-              onMouseEnter={(e) =>
-                (e.currentTarget.style.color = "var(--foreground)")
-              }
-              onMouseLeave={(e) =>
-                (e.currentTarget.style.color = "var(--foreground-secondary)")
-              }
+              onClick={() => scrollTo(link.href)}
+              className="bg-transparent border-none cursor-pointer text-sm text-[var(--foreground-secondary)] hover:text-[var(--foreground)] transition-colors duration-150 p-0"
             >
               {link.label}
             </button>
           ))}
+        </nav>
 
-          {/* CTA */}
+        {/* Right side */}
+        <div className="flex items-center shrink-0">
+          {/* Desktop CTA */}
           <button
-            onClick={() => handleNavClick("#contact")}
-            style={{
-              backgroundColor: "var(--foreground)",
-              color: "var(--background)",
-              border: "none",
-              borderRadius: "6px",
-              padding: "0.5rem 1.1rem",
-              fontSize: "0.875rem",
-              fontWeight: 500,
-              cursor: "pointer",
-              transition: "opacity var(--transition-fast)",
-            }}
-            onMouseEnter={(e) => (e.currentTarget.style.opacity = "0.85")}
-            onMouseLeave={(e) => (e.currentTarget.style.opacity = "1")}
+            onClick={() => scrollTo("#contact")}
+            className="hidden md:block bg-[var(--foreground)] text-[var(--background)] border-none rounded-md px-4 py-2 text-sm font-medium cursor-pointer hover:opacity-80 transition-opacity duration-150"
           >
             Let's Talk
+          </button>
+
+          {/* Mobile hamburger */}
+          <button
+            onClick={() => setMenuOpen(!menuOpen)}
+            className="md:hidden bg-transparent border border-[var(--border)] rounded-md p-2 cursor-pointer text-[var(--foreground)]"
+          >
+            {menuOpen ? <X size={20} /> : <Menu size={20} />}
           </button>
         </div>
+      </div>
 
-        {/* Mobile Hamburger */}
-        <button
-          onClick={() => setMenuOpen(!menuOpen)}
-          className="show-mobile"
-          style={{
-            background: "none",
-            border: "1px solid var(--border)",
-            borderRadius: "6px",
-            padding: "0.4rem 0.6rem",
-            cursor: "pointer",
-            color: "var(--foreground)",
-            fontSize: "1.1rem",
-            display: "none",
-          }}
-        >
-          {menuOpen ? "✕" : "☰"}
-        </button>
-      </nav>
-
-      {/* Mobile Menu */}
+      {/* Mobile menu */}
       {menuOpen && (
-        <div
-          style={{
-            borderTop: "1px solid var(--border)",
-            backgroundColor: "var(--surface)",
-            padding: "1rem var(--container-padding)",
-            display: "flex",
-            flexDirection: "column",
-            gap: "0.75rem",
-          }}
-        >
+        <div className="md:hidden border-t border-[var(--border)] bg-[var(--surface)] flex flex-col">
           {navLinks.map((link) => (
             <button
               key={link.href}
-              onClick={() => handleNavClick(link.href)}
-              style={{
-                background: "none",
-                border: "none",
-                cursor: "pointer",
-                fontSize: "1rem",
-                color: "var(--foreground-secondary)",
-                textAlign: "left",
-                padding: "0.25rem 0",
-              }}
+              onClick={() => scrollTo(link.href)}
+              className="bg-transparent border-none border-b border-[var(--border-subtle)] cursor-pointer text-[0.95rem] text-[var(--foreground-secondary)] text-left px-6 py-4 hover:text-[var(--foreground)] transition-colors duration-150"
             >
               {link.label}
             </button>
           ))}
-          <button
-            onClick={() => handleNavClick("#contact")}
-            style={{
-              backgroundColor: "var(--foreground)",
-              color: "var(--background)",
-              border: "none",
-              borderRadius: "6px",
-              padding: "0.65rem 1rem",
-              fontSize: "0.9rem",
-              fontWeight: 500,
-              cursor: "pointer",
-              marginTop: "0.5rem",
-            }}
-          >
-            Let's Talk
-          </button>
+          <div className="px-6 py-4">
+            <button
+              onClick={() => scrollTo("#contact")}
+              className="w-full bg-[var(--foreground)] text-[var(--background)] border-none rounded-lg py-3 text-[0.95rem] font-medium cursor-pointer"
+            >
+              Let's Talk
+            </button>
+          </div>
         </div>
       )}
     </header>

@@ -187,3 +187,10 @@ body {
     display: flex !important;
   }
 }
+
+@media (max-width: 768px) {
+  .hero-photo-wrapper {
+    display: none;
+  }
+}
+
